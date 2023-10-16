@@ -1,0 +1,438 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+canvas {
+  border: 2px solid orange;
+}
+
+#false-game {
+  position: relative;
+  width: 430px;
+  height: 932px;
+  background-color: rgba(255, 255, 255, 1);
+  overflow: hidden;
+  --web-view-name: false-game;
+  --web-view-id: false-game;
+  --web-scale-on-resize: true;
+  --web-enable-deep-linking: true;
+}
+#bg {
+  position: absolute;
+  width: 431px;
+  height: 932px;
+  overflow: visible;
+}
+
+#gameAssets {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out;
+  transition-delay: 2s;
+}
+#gameAssets.hide {
+  opacity: 0;
+  /* visibility: hidden; */
+}
+
+.bg-word {
+  position: relative;
+  margin: 0 auto;
+  width: auto;
+  height: 64px;
+  top: 480px;
+}
+
+#bg_word_1 {
+  display: none;
+}
+#bg_word_2 {
+  display: none;
+}
+#bg_word_3 {
+  display: none;
+}
+#bg_word_4 {
+  display: none;
+}
+#bg_word_5 {
+  display: none;
+}
+
+#circle {
+  position: absolute;
+  width: 285px;
+  height: 285px;
+  left: 73px;
+  top: 579px;
+  overflow: visible;
+}
+#circle_u {
+  position: absolute;
+  width: 285px;
+  height: 285px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Star {
+  position: absolute;
+  width: 160px;
+  height: 128px;
+  left: 133px;
+  top: 643px;
+  overflow: visible;
+}
+#Group_1 {
+  position: absolute;
+  width: 160px;
+  height: 128px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#line_1_4 {
+  display: none;
+  position: absolute;
+  width: 72px;
+  height: 128px;
+  left: 20px;
+  top: 0px;
+  overflow: visible;
+}
+#line_2_4 {
+  position: absolute;
+  display: none;
+  width: 131px;
+  height: 80px;
+  left: 29px;
+  top: 45px;
+  overflow: visible;
+}
+#line_2_5 {
+  position: absolute;
+  display: none;
+  width: 146px;
+  height: 37px;
+  left: 5px;
+  top: 35px;
+  overflow: visible;
+}
+#line_3_5 {
+  position: absolute;
+  display: none;
+  width: 131px;
+  height: 80px;
+  left: 0px;
+  top: 45px;
+  overflow: visible;
+}
+
+#FALSE_off {
+  position: absolute;
+  width: 279px;
+  height: 267px;
+  left: 76px;
+  top: 581px;
+  overflow: visible;
+}
+#letter_1_off,
+#letter_1_on {
+  position: absolute;
+  width: 93px;
+  height: 93px;
+  left: 93px;
+  top: 0px;
+  overflow: visible;
+}
+
+#letter_1_off {
+  display: block;
+}
+
+#letter_1_on {
+  display: none;
+}
+
+#letter_2_off,
+#letter_2_on {
+  position: absolute;
+  width: 93px;
+  height: 94px;
+  left: 186px;
+  top: 65px;
+  overflow: visible;
+}
+
+#letter_2_off {
+  display: block;
+}
+
+#letter_2_on {
+  display: none;
+}
+
+#letter_3_off,
+#letter_3_on {
+  position: absolute;
+  width: 93px;
+  height: 94px;
+  left: 147px;
+  top: 171px;
+  overflow: visible;
+}
+
+#letter_3_off {
+  display: block;
+}
+
+#letter_3_on {
+  display: none;
+}
+
+#letter_4_off,
+#letter_4_on {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 44px;
+  top: 171px;
+  overflow: visible;
+}
+
+#letter_4_off {
+  display: block;
+}
+
+#letter_4_on {
+  display: none;
+}
+
+#letter_5_off,
+#letter_5_on {
+  position: absolute;
+  width: 93px;
+  height: 94px;
+  left: 0px;
+  top: 65px;
+  overflow: visible;
+}
+
+#letter_5_off {
+  display: block;
+}
+
+#letter_5_on {
+  display: none;
+}
+
+#fond-gris_lettres {
+  position: absolute;
+  width: 453px;
+  height: 98px;
+  left: -11px;
+  top: 368px;
+  overflow: visible;
+}
+
+#fond-gris_lettres_ {
+  position: absolute;
+  width: 453px;
+  height: 98px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+#Panel {
+  position: absolute;
+  width: 430px;
+  height: 294px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+#card_chain {
+  position: absolute;
+  width: 430px;
+  height: 191px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+#card {
+  position: absolute;
+  width: 376px;
+  height: 108px;
+  left: 27px;
+  top: 186px;
+  overflow: visible;
+}
+
+#logo {
+  position: absolute;
+  width: 104px;
+  height: 106px;
+  left: 163px;
+  top: 30px;
+  overflow: visible;
+}
+
+#logo_bd {
+  position: absolute;
+  width: 104px;
+  height: 106px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+#wording_card {
+  position: absolute;
+  display: none;
+  width: 91px;
+  height: 23px;
+  left: 202px;
+  top: 243px;
+  overflow: visible;
+}
+
+#handWoman {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  transform: translate(-400%, 0%);
+  z-index: 1;
+}
+
+#ending-container {
+  position: relative;
+  width: 430px;
+  height: 932px;
+  background-color: rgba(255, 255, 255, 1);
+  overflow: hidden;
+  --web-view-name: ending-container;
+  --web-view-id: ending-container;
+  --web-scale-on-resize: true;
+  --web-enable-deep-linking: true;
+  /* opacity: 0; */
+  transition: opacity 0.5s ease-in-out;
+  transition-delay: 2s;
+}
+/* 
+#ending-container.show {
+  opacity: 1;
+  visibility: hidden;
+} */
+
+.end-screen {
+  align-items: flex-start;
+  background-color: #ffffff;
+  display: flex;
+  height: 932px;
+  overflow: hidden;
+  width: 430px;
+}
+
+.overlap-group {
+  display: flex;
+  align-items: center;
+  /* background-image: url(./img/bg.png); */
+  background-position: 50% 50%;
+  background-size: cover;
+  flex-direction: column;
+  margin-left: -1px;
+  min-height: 932px;
+  padding: 30px 0;
+  width: 431px;
+}
+
+.cta {
+  position: absolute;
+  cursor: pointer;
+  background-image: url(./img/cta.png);
+  margin: 0 auto;
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 12%;
+  height: 99px;
+  width: 366px;
+  transform: scale(1) translateY(0px);
+  transition: transform 0.25s ease;
+}
+
+.cta:hover {
+  transform: scale(1.1) translateY(-10px);
+  filter: drop-shadow(0 0 2em rgba(255, 190, 0, 0.5));
+}
+
+.wording {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 535px;
+  object-fit: cover;
+  width: 389px;
+}
+
+.char_top {
+  position: absolute;
+  animation: pulse 3s ease-in-out infinite;
+  height: 119px;
+  top: 55%;
+  object-fit: cover;
+  width: 430px;
+}
+
+.char_bottom {
+  position: absolute;
+  animation: pulseScale 3s ease-in-out infinite;
+  height: 119px;
+  top: 55%;
+  object-fit: cover;
+  width: 430px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: none;
+    transform: scale(1);
+    transform: translateY(0.5rem);
+  }
+  50% {
+    transform: translateY(-1.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0.5rem);
+  }
+}
+
+@keyframes pulseScale {
+  0% {
+    transform: none;
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scaleX(0.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
