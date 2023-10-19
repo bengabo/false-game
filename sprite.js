@@ -1,30 +1,41 @@
-let spriteSheet = new Image();
-spriteSheet.src = "./img/sprite.png"; // Replace with the path to your sprite sheet image
-spriteSheet.onload = function () {
-  init();
+const animated_element = document.getElementById("sprite");
+
+const frame_width = animated_element.offsetWidth;
+const frame_height = animated_element.offsetHeight;
+const total_frames = 22;
+let frame_count = 0;
+let animationInterval;
+
+let frames_per_row = 2;
+let frames_per_column = 11;
+let current_row = 0;
+let current_column = 0;
+
+const startAnimation = () => {
+  animationInterval = setInterval(() => {
+    const new_x = current_column * frame_width * -1;
+    const new_y = current_row * frame_height * -1;
+
+    animated_element.style.backgroundPositionX = new_x + "px";
+    animated_element.style.backgroundPositionY = new_y + "px";
+
+    if (frame_count < total_frames) {
+      frame_count += 1;
+      current_column += 1;
+
+      if (current_column >= frames_per_row) {
+        current_column = 0;
+        current_row += 1;
+
+        if (current_row >= frames_per_column) {
+          current_row = frames_per_column - 1;
+          current_column = frames_per_row - 1;
+          clearInterval(animationInterval);
+        }
+      }
+    }
+  }, 60);
 };
 
-let canvas = document.querySelector("canvas");
-let ctx = canvas.getContext("2d");
-
-const scale = 2;
-const frameWidth = 840; // Width of a single frame in the sprite sheet
-const frameHeight = 160; // Height of a single frame in the sprite sheet
-const scaledWidth = scale * frameWidth;
-const scaledHeight = scale * frameHeight;
-const frameCount = 23; // Total number of frames in the sprite sheet
-const animationSpeed = 1000; // Time (in milliseconds) per frame
-
-function init() {
-  ctx.drawImage(
-    spriteSheet,
-    0,
-    0,
-    frameWidth,
-    frameHeight,
-    0,
-    0,
-    500,
-    85
-  );
-}
+animated_element.style.cursor = "pointer";
+animated_element.addEventListener("click", startAnimation);

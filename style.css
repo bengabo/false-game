@@ -399,6 +399,24 @@ canvas {
   width: 430px;
 }
 
+figure {
+  margin: 100px 0 0 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid white;
+  border-radius: 50px;
+  display: inline-block;
+  position: relative;
+}
+
+#sprite {
+  position: absolute;
+  height: 170px;
+  background: url(./img/sprite.png) no-repeat 0 0;
+  width: 821px;
+  position: relative;
+}
+
+
 @keyframes pulse {
   0% {
     transform: none;
